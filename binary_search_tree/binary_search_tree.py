@@ -46,17 +46,14 @@ class BSTNode:
                 self.right.contains(target)
 
 
-    # Return the maximum value found in the tree
+    
     def get_max(self):
         if self.right is None:
             return self.value
         else:
-            return self.right.get_max()
+            return self.right.get_max()  
 
-    # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        # call function on the current value fn(self.value)
-        # if you can go left, call for_each on the left tree
         if self.left != None:
             self.left.for_each(fn)
 
@@ -67,7 +64,12 @@ class BSTNode:
         
 
     def in_order_print(self, node):
-        pass
+        if self.left is None and self.right is None:
+            print(self.value)
+        if self.left != None:
+            self.left.in_order_print(node)
+        if self.right != None:
+            self.right.in_order_print(node)
 
     def bft_print(self, node):
         pass
