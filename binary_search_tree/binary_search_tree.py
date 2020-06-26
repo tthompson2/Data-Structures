@@ -32,20 +32,24 @@ class BSTNode:
         found = False
 
         if target < self.value:
-            if self.left != None:
-                found = True
-                return found
+            if self.left is None:
+                if target == self.value:
+                    found = True
+                    return found
+                else:
+                    return found
             else:
-                self.left.contains(target)
+                return self.left.contains(target)
 
         if target >= self.value:
-            if self.right != None:
-                found = True
-                return found
+            if self.right is None:
+                if target == self.value:
+                    found = True
+                    return found
+                else: 
+                    return found
             else: 
-                self.right.contains(target)
-
-
+                return self.right.contains(target)
     
     def get_max(self):
         if self.right is None:
