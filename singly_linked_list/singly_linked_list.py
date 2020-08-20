@@ -25,6 +25,7 @@ class LinkedList:
   def add_to_tail(self, value):
     # create a node to add
     new_node = Node(value)
+
     # check if list is empty
     if self.head is None and self.tail is None:
       self.head = new_node
@@ -65,20 +66,17 @@ class LinkedList:
       # otherwise, go to the next node
       current_node = current_node.next_node
     return False 
-  
+  def get_max(self):
 
-# example
-# linked_list = LinkedList()
+    if self.head is None:
+      return None
 
-# linked_list.add_to_head(0)
-# linked_list.add_to_tail(1)
-# print(f'does our LL contain 0? {linked_list.contains(0)}')
-# print(f'does our LL contain 1? {linked_list.contains(1)}')
-# print(f'does our LL contain 2? {linked_list.contains(2)}')
+    current_node = self.head
+    current_value = self.head.value
 
-# linked_list.add_to_head(2)
-# print(f'the start of the list is {linked_list.head.value}')
-# linked_list.add_to_head(5)
-# print(f'the start of the list is {linked_list.head.value}')
-# linked_list.remove_head()
-# print(f'the start of the list is {linked_list.head.value}')
+    while current_node is not None:
+      if current_value < current_node.value:
+        current_value = current_node.value
+      current_node = current_node.next_node
+    return current_value
+      

@@ -8,6 +8,10 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+
+from queue import Queue
+from stack import Stack
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -61,7 +65,7 @@ class BSTNode:
         if self.left != None:
             self.left.for_each(fn)
 
-        fn(self.value) # why doe
+        fn(self.value) 
 
         if self.right != None:
             self.right.for_each(fn)
@@ -76,7 +80,13 @@ class BSTNode:
             self.right.in_order_print(node)
 
     def bft_print(self, node):
-        pass
+        if self.left is None and self.right is None:
+             print(self.value)
+             queue.dequeue(self)
+        else:
+            self.right
+            queue.enqueue(self)
+
 
     def dft_print(self, node):
         pass
