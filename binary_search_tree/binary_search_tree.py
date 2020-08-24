@@ -1,3 +1,5 @@
+import sys 
+
 """
 Binary search trees are a data structure that enforce an ordering over 
 the data they store. That ordering in turn makes it a lot more efficient 
@@ -8,9 +10,8 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
-
-from queue import Queue
-from stack import Stack
+sys.path.insert(1, '/queue/queue.py')
+sys.path.insert(1, '/stack/stack.py')
 
 class BSTNode:
     def __init__(self, value):
