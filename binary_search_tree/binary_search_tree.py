@@ -1,4 +1,4 @@
-import sys 
+
 
 """
 Binary search trees are a data structure that enforce an ordering over 
@@ -10,8 +10,7 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
-sys.path.insert(1, '/queue/queue.py')
-sys.path.insert(1, '/stack/stack.py')
+from queue import Queue
 
 class BSTNode:
     def __init__(self, value):
@@ -73,14 +72,14 @@ class BSTNode:
         
 
     def in_order_print(self, node):
-        if self.left is None and self.right is None:
-            print(self.value)
         if self.left != None:
             self.left.in_order_print(node)
+        print(self.value)
         if self.right != None:
             self.right.in_order_print(node)
 
     def bft_print(self, node):
+        queue = Queue()
         if self.left is None and self.right is None:
              print(self.value)
              queue.dequeue(self)
@@ -97,8 +96,17 @@ class BSTNode:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        print(self.value)
+        if self.left != None:
+            self.left.in_order_print(node)
+        if self.right != None:
+            self.right.in_order_print(node)
+        
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if self.left != None:
+            self.left.in_order_print(node)
+        if self.right != None:
+            self.right.in_order_print(node)
+        print(self.value)
